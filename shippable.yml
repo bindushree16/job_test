@@ -1,0 +1,84 @@
+ # git resources 
+ 
+resources:
+  - name: sample_testjob
+    type: gitRepo
+    repoPath: bindushree16/test_job
+    configuration:
+      integrationName: bindu_github
+      branches:
+        only: master
+    initialVersion:
+      sha: master
+      
+pipelines:
+  - name: pipelinejob
+    steps:
+      - name: test1
+        type: bash
+        configuration:
+          affinityGroup: kermit
+          nodePool: kermit_ubuntu_pool       
+        setup: 
+          runtime:            
+            type: image
+            image:
+              custom:
+                name: drydock/c7node
+                tag: master
+                options: ""
+        triggeredBy:
+          resources:
+            - sample_testjob
+        execution:
+          onStart:
+            - printenv
+          onExecute:
+            - printenv
+            - echo "hi"
+
+      - name: test2
+        type: bash
+        configuration:
+          affinityGroup: kamal
+          nodePool: kermit_ubuntu18_pool
+        setup:
+          runtime:            
+            type: image
+            image:
+              custom:
+                name: drydock/u16node
+                tag: master
+                options: ""
+        triggeredBy:
+          steps:
+            - test1
+        execution:
+          onStart:
+            - printenv
+          onExecute:
+            - printenv
+            - echo "hey"
+
+      - name: test3
+        type: bash
+        configuration:
+          affinityGroup: kamal
+          nodePool: kermit_ubuntu18_pool       
+        setup:
+          runtime:            
+            type: image
+            image:
+              custom:
+                name: drydock/u16node
+                tag: master
+                options: ""
+        triggeredBy:
+          steps:
+            - test2
+        execution:
+          onStart:
+            - printenv
+          onExecute:
+            - printenv
+            - echo "hi"
