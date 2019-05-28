@@ -1,9 +1,9 @@
  # git resources 
  
 resources:
-  - name: sample_testjob
+  - name: sample_jobQ
     type: gitRepo
-    repoPath: bindushree16/test_job
+    repoPath: bindushree16/job_test
     configuration:
       integrationName: bindu_github
       branches:
@@ -29,7 +29,7 @@ pipelines:
                 options: ""
         triggeredBy:
           resources:
-            - sample_testjob
+            - sample_jobQ
         execution:
           onStart:
             - printenv
