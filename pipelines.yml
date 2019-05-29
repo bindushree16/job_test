@@ -19,17 +19,17 @@ pipelines:
       - name: test1
         type: bash
         setup: 
-          environmentVariables:
-            normal:
-              ENV1: value1 
+#           environmentVariables:
+#             normal:
+#               ENV1: value1 
           runtime:            
             type: image
             image:
               custom:
-                name: drydock/u18node
-                tag: master
+                name: shippabledocker/pipelinev2
+                tag: deploy.2
                 options: "--env Villa=good"
-                autoPull: false
+#                 autoPull: false
         triggeredBy:
           resources:
             - sample_jobQ
@@ -39,14 +39,14 @@ pipelines:
             - sleep 2m
             - echo "hi"
 #             - docker images
-            - add_run_variable keyName="valueTestUpdate"
+#             - add_run_variable keyName="valueTestUpdate"
 #             - pushd $res_sample_jobQ_resourcePath
 #             - save_run_state pipelines.yml my_file
-#             - popd
-            - test "$ENV1" == "value1"
-            - echo "$ENV1" == "value1"
-#             - ls -la
-#             - sleep 2m
+# #             - popd
+#             - test "$ENV1" == "value1"
+#             - echo "$ENV1" == "value1"
+# #             - ls -la
+# #             - sleep 2m
 
       - name: test2
         type: bash
@@ -56,10 +56,10 @@ pipelines:
         execution:
           onExecute:
             - printenv
-#             - export_run_variables 
-#             - restore_run_state my_file pipelines.yml
-            - test "$keyName" == "valueTestUpdate"
-            - echo "$keyName" == "valueTestUpdate" 
+# #             - export_run_variables 
+# #             - restore_run_state my_file pipelines.yml
+#             - test "$keyName" == "valueTestUpdate"
+#             - echo "$keyName" == "valueTestUpdate" 
 
 #       - name: test3
 #         type: bash
