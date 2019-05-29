@@ -30,7 +30,7 @@ pipelines:
             - printenv
           onExecute:
             - printenv
-            - pushd $res_job_test_sample_jobQ
+            - pushd $res_bindushree16/job_test_resourcePath
             - save_run_state pipelines.yml my_file
             - popd
             - test "$ENV1" == "value1"
