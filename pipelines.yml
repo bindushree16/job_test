@@ -16,20 +16,20 @@ resources:
 pipelines:
   - name: pipelinejob
     steps:
-      - name: test1
+      - name: test3
         type: bash
         setup: 
 #           environmentVariables:
 #             normal:
 #               ENV1: value1 
           runtime:            
-            type: host
-           # image:
-            #  custom:
-            #    name: shippabledocker/pipelinev2
-             #   tag: deploy.2
-             #   options: "--env Villa=good"
-#             #    autoPull: false
+            type: image
+            image:
+              custom:
+                name: shippabledocker/pipelinev2
+                tag: deploy.2
+                options: "--env Villa=good"
+#                 autoPull: false
         triggeredBy:
           resources:
             - sample_jobQ
@@ -48,11 +48,11 @@ pipelines:
 # #             - ls -la
 # #             - sleep 2m
 
-      - name: test2
+      - name: test4
         type: bash
         triggeredBy:
           steps:
-            - test1
+            - test3
         execution:
           onExecute:
             - printenv
