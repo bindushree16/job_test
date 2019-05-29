@@ -17,14 +17,14 @@ pipelines:
       - name: test1
         type: bash
         setup: 
-          environmentVariables:
-            normal:
-              ENV1: value1 
+#           environmentVariables:
+#             normal:
+#               ENV1: value1 
           runtime:            
             type: image
             image:
               custom:
-                name: drydock/u16node
+                name: bindushree16/u16node
                 tag: master
                 options: "--env Villa=good"
                 autoPull: false
@@ -32,16 +32,15 @@ pipelines:
           resources:
             - sample_jobQ
         execution:
-          onStart:
-            - printenv
           onExecute:
             - printenv
+            - docker images
 #             - add_run_variable keyName="valueTest"
 #             - pushd $res_sample_jobQ_resourcePath
 #             - save_run_state pipelines.yml my_file
 #             - popd
-            - test "$ENV1" == "value1"
-            - echo "$ENV1" == "value1"
+#             - test "$ENV1" == "value1"
+#             - echo "$ENV1" == "value1"
 #             - ls -la
 #             - sleep 2m
 
