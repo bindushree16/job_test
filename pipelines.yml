@@ -18,17 +18,17 @@ pipelines:
     steps:
       - name: test3
         type: bash
-      #  setup: 
+        setup: 
 #           environmentVariables:
 #             normal:
 #               ENV1: value1 
-          #runtime:            
-          #  type: image
-          #  image:
-           #   custom:
-            #    name: shippabledocker/pipelinev2
-            #    tag: deploy.2
-             #   options: "--env Villa=good"
+          runtime:            
+            type: image
+            image:
+              custom:
+                name: shippabledocker/u16phpall
+                tag: test7.0
+                options: "--env Villa=good"
 #             #    autoPull: false
         triggeredBy:
           resources:
