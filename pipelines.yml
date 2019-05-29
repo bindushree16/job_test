@@ -35,7 +35,7 @@ pipelines:
           onExecute:
             - printenv
 #             - docker images
-#             - add_run_variable keyName="valueTest"
+            - add_run_variable keyName="valueTest"
 #             - pushd $res_sample_jobQ_resourcePath
 #             - save_run_state pipelines.yml my_file
 #             - popd
@@ -54,8 +54,8 @@ pipelines:
             - printenv
 #             - export_run_variables 
 #             - restore_run_state my_file pipelines.yml
-            - test "$ENV1" == "value1"
-            - echo "$ENV1" == "value1" 
+            - test "$keyName" == "valueTest"
+            - echo "$keyName" == "valueTest" 
 
 #       - name: test3
 #         type: bash
