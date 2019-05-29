@@ -8,8 +8,8 @@ resources:
       integrationName: bindu_github
       branches:
         only: master
-      buildOn:
-        commit: false
+#       buildOn:
+#         commit: false
     version:
       sha: master
    
