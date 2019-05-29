@@ -37,6 +37,7 @@ pipelines:
           onExecute:
             - printenv
             - sleep 2m
+            - echo "hi"
 #             - docker images
             - add_run_variable keyName="valueTest"
 #             - pushd $res_sample_jobQ_resourcePath
