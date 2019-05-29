@@ -32,6 +32,7 @@ pipelines:
             - printenv
             - test "$ENV1" == "value1"
             - echo "$ENV1" == "value1"
+            - ls -la
 #             - sleep 2m
 
       - name: test2
