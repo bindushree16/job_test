@@ -14,7 +14,7 @@ resources:
       sha: master
    
 pipelines:
-  - name: pipelinejob
+  - name: pipelinejobbindu
     steps:
       - name: test3
         type: bash
@@ -22,14 +22,14 @@ pipelines:
 #           environmentVariables:
 #             normal:
 #               ENV1: value1 
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: shippabledocker/pipelinev2
-                tag: deploy.2
-                options: "--env Villa=good"
-#                 autoPull: false
+          #runtime:            
+          #  type: image
+          #  image:
+           #   custom:
+            #    name: shippabledocker/pipelinev2
+            #    tag: deploy.2
+             #   options: "--env Villa=good"
+#             #    autoPull: false
         triggeredBy:
           resources:
             - sample_jobQ
