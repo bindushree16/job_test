@@ -39,7 +39,7 @@ pipelines:
             - sleep 2m
             - echo "hi"
 #             - docker images
-            - add_run_variable keyName="valueTest"
+            - add_run_variable keyName="valueTest11"
 #             - pushd $res_sample_jobQ_resourcePath
 #             - save_run_state pipelines.yml my_file
 #             - popd
@@ -58,8 +58,8 @@ pipelines:
             - printenv
 #             - export_run_variables 
 #             - restore_run_state my_file pipelines.yml
-            - test "$keyName" == "valueTest"
-            - echo "$keyName" == "valueTest" 
+            - test "$keyName" == "valueTest11"
+            - echo "$keyName" == "valueTest11" 
 
 #       - name: test3
 #         type: bash
