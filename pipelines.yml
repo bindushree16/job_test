@@ -27,7 +27,7 @@ pipelines:
             image:
               custom:
                 name: drydock/c7node #shippabledocker/u16phpall
-                tag: test7.0
+                tag: master #test7.0
                 options: "--env Villa=good"
 #             #    autoPull: false
         triggeredBy:
