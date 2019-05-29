@@ -8,9 +8,11 @@ resources:
       integrationName: bindu_github
       branches:
         only: master
+      buildOn:
+        commit: false
     version:
       sha: master
-      
+   
 pipelines:
   - name: pipelinejob
     steps:
@@ -34,6 +36,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - sleep 2m
 #             - docker images
             - add_run_variable keyName="valueTest"
 #             - pushd $res_sample_jobQ_resourcePath
