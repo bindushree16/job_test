@@ -56,6 +56,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - echo "66"
 # #             - export_run_variables 
 # #             - restore_run_state my_file pipelines.yml
 #             - test "$keyName" == "valueTestUpdate"
