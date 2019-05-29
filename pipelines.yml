@@ -23,13 +23,13 @@ pipelines:
 #             normal:
 #               ENV1: value1 
           runtime:            
-            type: image
-            image:
-              custom:
-                name: shippabledocker/pipelinev2
-                tag: deploy.2
-                options: "--env Villa=good"
-#                 autoPull: false
+            type: host
+           # image:
+            #  custom:
+            #    name: shippabledocker/pipelinev2
+             #   tag: deploy.2
+             #   options: "--env Villa=good"
+#             #    autoPull: false
         triggeredBy:
           resources:
             - sample_jobQ
