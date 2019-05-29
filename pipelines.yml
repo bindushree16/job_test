@@ -30,6 +30,7 @@ pipelines:
             - printenv
           onExecute:
             - printenv
+            - add_run_variable keyName="valueTest"
             - pushd $res_sample_jobQ_resourcePath
             - save_run_state pipelines.yml my_file
             - popd
@@ -46,6 +47,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - export_run_variables 
             - restore_run_state my_file pipelines.yml
             - test "$ENV1" == "value1"
             - echo "$ENV1" == "value1" 
