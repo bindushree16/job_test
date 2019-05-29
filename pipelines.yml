@@ -24,7 +24,7 @@ pipelines:
             type: image
             image:
               custom:
-                name: bindushree16/u16node
+                name: drydock/u18node
                 tag: master
                 options: "--env Villa=good"
                 autoPull: false
