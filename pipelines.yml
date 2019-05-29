@@ -16,6 +16,8 @@ pipelines:
     steps:
       - name: test1
         type: bash
+        configuration:
+          nodePool: kermit_node
         setup: 
           environmentVariables:
             normal:
