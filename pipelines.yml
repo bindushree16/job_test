@@ -32,7 +32,7 @@ pipelines:
             - printenv
             - test "$ENV1" == "value1"
             - echo "$ENV1" == "value1"
-            - sleep 2m
+#             - sleep 2m
 
       - name: test2
         type: bash
@@ -40,8 +40,6 @@ pipelines:
           steps:
             - test1
         execution:
-          onStart:
-            - printenv
           onExecute:
             - printenv
             - test "$ENV1" == "value1"
