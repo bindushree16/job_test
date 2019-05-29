@@ -16,17 +16,10 @@ pipelines:
     steps:
       - name: test1
         type: bash
-        configuration:
-          affinityGroup: kermit
-          nodePool: kermit_ubuntu_pool       
         setup: 
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/c7node
-                tag: master
-                options: ""
+          environmentVariables:
+            normal:
+              ENV1: value1 
         triggeredBy:
           resources:
             - sample_jobQ
@@ -35,21 +28,12 @@ pipelines:
             - printenv
           onExecute:
             - printenv
-            - echo "hi"
+            - test "$ENV1" == "value1"
+            - echo "$ENV1" == "value1"
+            - sleep 2m
 
       - name: test2
         type: bash
-        configuration:
-          affinityGroup: kamal
-          nodePool: kermit_ubuntu18_pool
-        setup:
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/u16node
-                tag: master
-                options: ""
         triggeredBy:
           steps:
             - test1
@@ -58,27 +42,28 @@ pipelines:
             - printenv
           onExecute:
             - printenv
-            - echo "hey"
+            - test "$ENV1" == "value1"
+            - echo "$ENV1" == "value1" 
 
-      - name: test3
-        type: bash
-        configuration:
-          affinityGroup: kamal
-          nodePool: kermit_ubuntu18_pool       
-        setup:
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/u16node
-                tag: master
-                options: ""
-        triggeredBy:
-          steps:
-            - test2
-        execution:
-          onStart:
-            - printenv
-          onExecute:
-            - printenv
-            - echo "hi"
+#       - name: test3
+#         type: bash
+#         configuration:
+#           affinityGroup: kamal
+#           nodePool: kermit_ubuntu18_pool       
+#         setup:
+#           runtime:            
+#             type: image
+#             image:
+#               custom:
+#                 name: drydock/u16node
+#                 tag: master
+#                 options: ""
+#         triggeredBy:
+#           steps:
+#             - test2
+#         execution:
+#           onStart:
+#             - printenv
+#           onExecute:
+#             - printenv
+#             - echo "hi"
