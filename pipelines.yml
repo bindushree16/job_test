@@ -17,9 +17,9 @@ pipelines:
       - name: test1
         type: bash
         setup: 
-#           environmentVariables:
-#             normal:
-#               ENV1: value1 
+          environmentVariables:
+            normal:
+              ENV1: value1 
           runtime:            
             type: image
             image:
@@ -34,13 +34,13 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - docker images
+#             - docker images
 #             - add_run_variable keyName="valueTest"
 #             - pushd $res_sample_jobQ_resourcePath
 #             - save_run_state pipelines.yml my_file
 #             - popd
-#             - test "$ENV1" == "value1"
-#             - echo "$ENV1" == "value1"
+            - test "$ENV1" == "value1"
+            - echo "$ENV1" == "value1"
 #             - ls -la
 #             - sleep 2m
 
@@ -54,8 +54,8 @@ pipelines:
             - printenv
 #             - export_run_variables 
 #             - restore_run_state my_file pipelines.yml
-#             - test "$ENV1" == "value1"
-#             - echo "$ENV1" == "value1" 
+            - test "$ENV1" == "value1"
+            - echo "$ENV1" == "value1" 
 
 #       - name: test3
 #         type: bash
