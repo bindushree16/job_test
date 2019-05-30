@@ -1,7 +1,7 @@
  # for git resources 
  
 resources:
-  - name:sample_jobQ #sam 
+  - name: sample_jobQ #sam 
     type: gitRepo
     repoPath: bindushree16/job_test #testpipeline 
     configuration:
