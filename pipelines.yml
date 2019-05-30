@@ -37,7 +37,7 @@ pipelines:
             - printenv
           onExecute:
             - printenv
-            - bump_semver v1.0.0 minor
+            - bump_semver v1.0.0 patch
 
       - name: test2
         type: bash
