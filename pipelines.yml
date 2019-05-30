@@ -3,7 +3,7 @@
 resources:
   - name: sam #sample_jobQ #
     type: gitRepo
-    repoPath: bindushree16/testpipeline #job_test 
+    repoPath: bindushree16/job_test #testpipeline #
     configuration:
       integrationName: bindu_github
       branches:
@@ -32,7 +32,7 @@ pipelines:
 #             #    autoPull: false
         requires:
           resources:
-            - sample_jobQ #sam 
+            - sam #sample_jobQ #
         execution:
           onExecute:
             - printenv
