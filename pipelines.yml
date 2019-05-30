@@ -77,7 +77,7 @@ pipelines:
                 options: ""
         requires:
           steps:
-            - test2
+            - test1
         execution:
           onStart:
             - printenv
