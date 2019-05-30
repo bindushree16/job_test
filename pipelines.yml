@@ -64,9 +64,9 @@ pipelines:
 
       - name: test3
         type: bash
-#         configuration:
-#           affinityGroup: kamal
-#           nodePool: kermit_ubuntu18_pool       
+        configuration:
+          affinityGroup: kermit
+          nodePool: kermit_ubuntu_pool 
         setup:
           runtime:            
             type: image
