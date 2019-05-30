@@ -1,9 +1,9 @@
  # for git resources 
  
 resources:
-  - name: sample_jobQ #sam 
+  - name: sam #sample_jobQ #
     type: gitRepo
-    repoPath: bindushree16/job_test #testpipeline 
+    repoPath: bindushree16/testpipeline #job_test 
     configuration:
       integrationName: bindu_github
       branches:
