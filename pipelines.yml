@@ -1,9 +1,9 @@
  # for git resources 
  
 resources:
-  - name: sample_jobQ
+  - name: sam #sample_jobQ
     type: gitRepo
-    repoPath: bindushree16/job_test
+    repoPath: bindushree16/testpipeline #job_test
     configuration:
       integrationName: bindu_github
       branches:
@@ -30,9 +30,9 @@ pipelines:
                 tag: test7.0
                 options: "--env Villa=good"
 #             #    autoPull: false
-        triggeredBy:
+        requires:
           resources:
-            - sample_jobQ
+            - sam #sample_jobQ
         execution:
           onExecute:
             - printenv
