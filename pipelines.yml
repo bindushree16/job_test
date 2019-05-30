@@ -24,11 +24,11 @@ pipelines:
 #               ENV1: value1 
           runtime:            
             type: image
-            image:
-              custom:
-                name: shippabledocker/u16phpall
-                tag: test7.0
-                options: "--env Villa=good"
+#             image:
+#               custom:
+#                 name: shippabledocker/u16phpall
+#                 tag: test7.0
+#                 options: "--env Villa=good"
 #             #    autoPull: false
         requires:
           resources:
