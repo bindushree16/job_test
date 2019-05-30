@@ -29,7 +29,7 @@ pipelines:
                 name: drydock/c7node
                 tag: master
                 options: ""
-        triggeredBy:
+        requires:
           resources:
             - sample_jobQ
         execution:
@@ -52,7 +52,7 @@ pipelines:
                 name: drydock/u16node
                 tag: master
                 options: ""
-        triggeredBy:
+        requires:
           steps:
             - test1
         execution:
@@ -75,7 +75,7 @@ pipelines:
                 name: drydock/u16node
                 tag: master
                 options: ""
-        triggeredBy:
+        requires:
           steps:
             - test2
         execution:
