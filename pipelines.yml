@@ -52,7 +52,7 @@ pipelines:
                 name: drydock/u16node
                 tag: master
                 options: ""
-        requires:
+        triggredBy:
           steps:
             - test1
         execution:
@@ -62,25 +62,25 @@ pipelines:
             - printenv
             - echo "hey"
 
-      - name: test3
-        type: bash
+#       - name: test3
+#         type: bash
 #         configuration:
 #           affinityGroup: kermit
 #           nodePool: kermit_ubuntu_pool 
-        setup:
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/u16node
-                tag: master
-                options: ""
-        requires:
-          steps:
-            - test1
-        execution:
-          onStart:
-            - printenv
-          onExecute:
-            - printenv
-            - echo "hi"
+#         setup:
+#           runtime:            
+#             type: image
+#             image:
+#               custom:
+#                 name: drydock/u16node
+#                 tag: master
+#                 options: ""
+#         requires:
+#           steps:
+#             - test1
+#         execution:
+#           onStart:
+#             - printenv
+#           onExecute:
+#             - printenv
+#             - echo "hi"
