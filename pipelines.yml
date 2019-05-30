@@ -18,9 +18,9 @@ pipelines:
     steps:
       - name: test1
         type: bash
-        configuration:
-          affinityGroup: kermit
-          nodePool: kermit_ubuntu_pool       
+#         configuration:
+#           affinityGroup: kermit
+#           nodePool: kermit_ubuntu_pool       
         setup: 
           runtime:            
             type: image
@@ -41,9 +41,9 @@ pipelines:
 
       - name: test2
         type: bash
-        configuration:
-          affinityGroup: kamal
-          nodePool: kermit_ubuntu18_pool
+#         configuration:
+#           affinityGroup: kamal
+#           nodePool: kermit_ubuntu18_pool
         setup:
           runtime:            
             type: image
@@ -64,9 +64,9 @@ pipelines:
 
       - name: test3
         type: bash
-        configuration:
-          affinityGroup: kermit
-          nodePool: kermit_ubuntu_pool 
+#         configuration:
+#           affinityGroup: kermit
+#           nodePool: kermit_ubuntu_pool 
         setup:
           runtime:            
             type: image
