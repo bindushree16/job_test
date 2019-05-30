@@ -1,9 +1,9 @@
  # for git resources 
  
 resources:
-  - name: sam #sample_jobQ #
+  - name: sample_jobQ 
     type: gitRepo
-    repoPath: bindushree16/job_test #testpipeline #
+    repoPath: bindushree16/job_test
     configuration:
       integrationName: bindu_github
       branches:
@@ -12,75 +12,75 @@ resources:
 #         commit: false
     version:
       sha: master
-   
+
 pipelines:
-  - name: pipelinejobbindu
+  - name: pipelinejob
     steps:
-      - name: test3
+      - name: test1
         type: bash
+        configuration:
+          affinityGroup: kermit
+          nodePool: kermit_ubuntu_pool       
         setup: 
-#           environmentVariables:
-#             normal:
-#               ENV1: value1 
           runtime:            
             type: image
-#             image:
-#               custom:
-#                 name: shippabledocker/u16phpall
-#                 tag: test7.0
-#                 options: "--env Villa=good"
-#             #    autoPull: false
-        requires:
+            image:
+              custom:
+                name: drydock/c7node
+                tag: master
+                options: ""
+        triggeredBy:
           resources:
-            - sam #sample_jobQ #
+            - sample_jobQ
         execution:
+          onStart:
+            - printenv
           onExecute:
             - printenv
-#             - sleep 2m
             - echo "hi"
-#             - docker images
-#             - add_run_variable keyName="valueTestUpdate"
-#             - pushd $res_sample_jobQ_resourcePath
-#             - save_run_state pipelines.yml my_file
-# #             - popd
-#             - test "$ENV1" == "value1"
-#             - echo "$ENV1" == "value1"
-# #             - ls -la
-# #             - sleep 2m
 
-      - name: test4
+      - name: test2
         type: bash
+        configuration:
+          affinityGroup: kamal
+          nodePool: kermit_ubuntu18_pool
+        setup:
+          runtime:            
+            type: image
+            image:
+              custom:
+                name: drydock/u16node
+                tag: master
+                options: ""
         triggeredBy:
           steps:
-            - test3
+            - test1
         execution:
+          onStart:
+            - printenv
           onExecute:
             - printenv
-            - echo "66"
-# #             - export_run_variables 
-# #             - restore_run_state my_file pipelines.yml
-#             - test "$keyName" == "valueTestUpdate"
-#             - echo "$keyName" == "valueTestUpdate" 
+            - echo "hey"
 
-#       - name: test3
-#         type: bash
-#         configuration:
-#           affinityGroup: kamal
-#           nodePool: kermit_ubuntu18_pool       
-#         setup:
-#           runtime:            
-#             type: image
-#             image:
-#               custom:
-#                 name: drydock/u16node
-#                 tag: master
-#                 options: ""
-#         triggeredBy:
-#           steps:
-#             - test2
-#         execution:
-#           onStart:
-#             - printenv
-#           onExecute:
-#             - printenv
-#             - echo "hi"
+      - name: test3
+        type: bash
+        configuration:
+          affinityGroup: kamal
+          nodePool: kermit_ubuntu18_pool       
+        setup:
+          runtime:            
+            type: image
+            image:
+              custom:
+                name: drydock/u16node
+                tag: master
+                options: ""
+        triggeredBy:
+          steps:
+            - test2
+        execution:
+          onStart:
+            - printenv
+          onExecute:
+            - printenv
+            - echo "hi"
