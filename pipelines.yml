@@ -39,6 +39,7 @@ pipelines:
         execution:
           onStart:
             - printenv
+            - echo "starting now"
           onExecute:
             - printenv
             - bump_semver v1.0.0 minor
