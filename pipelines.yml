@@ -23,7 +23,7 @@ pipelines:
             - smaple_jobQ
         requires:
           resources:
-            - sample_jobQ
+            - smaple_jobQ
         execution:
           onStart:
             - printenv
@@ -56,7 +56,7 @@ pipelines:
         type: bash
         triggeredBy:
           resources:
-            - smaple_jobQ
+            - sample_jobQ
         requires:
           resources:
             - sample_jobQ
