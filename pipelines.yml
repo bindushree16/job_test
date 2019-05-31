@@ -16,20 +16,9 @@ resources:
 pipelines:
   - name: pipelinejob
     steps:
-      - name: test1
+      - name: test1u16
         type: bash
-#         configuration:
-#           affinityGroup: kermit
-#           nodePool: kermit_ubuntu_pool       
-        setup: 
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/c7node
-                tag: master
-                options: ""
-        requires:
+        triggeredBy:
           resources:
             - sample_jobQ
         execution:
@@ -37,51 +26,29 @@ pipelines:
             - printenv
           onExecute:
             - printenv
-            - bump_semver v1. rc
+            - bump_semver v1.0.0-rc minor
 
 
-      - name: test2
-        type: bash
-#         configuration:
-#           affinityGroup: kamal
-#           nodePool: kermit_ubuntu18_pool
-        setup:
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/u16node
-                tag: master
-                options: ""
-        triggeredBy:
-          steps:
-            - test1
-        execution:
-          onStart:
-            - printenv
-          onExecute:
-            - printenv
-            
-
-#       - name: test3
+#       - name: test2u18
 #         type: bash
-#         configuration:
-#           affinityGroup: kermit
-#           nodePool: kermit_ubuntu_pool 
-#         setup:
-#           runtime:            
-#             type: image
-#             image:
-#               custom:
-#                 name: drydock/u16node
-#                 tag: master
-#                 options: ""
-#         requires:
-#           steps:
-#             - test1
+#         triggeredBy:
+#           resources:
+#             - sample_jobQ
 #         execution:
 #           onStart:
 #             - printenv
 #           onExecute:
 #             - printenv
-#             - echo "hi"
+            
+
+#       - name: test3c7
+#         type: bash 
+#         requires:
+#           resources:
+#             - sample_jobQ
+#         execution:
+#           onStart:
+#             - printenv
+#           onExecute:
+#             - printenv
+           
