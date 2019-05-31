@@ -43,9 +43,9 @@ pipelines:
         triggeredBy:
           steps:
             - test1u16
-        requires:
-          resources:
-            - sample_jobQ 
+#         requires:
+#           resources:
+#             - sample_jobQ 
         execution:
           onStart:
             - printenv
@@ -62,9 +62,9 @@ pipelines:
         type: bash
         configuration:
           nodePool: kermit_centos_pool
-        requires:
-          resources:
-            - sample_jobQ
+#         requires:
+#           resources:
+#             - sample_jobQ
         triggeredBy:
           steps:
             - test2u18
