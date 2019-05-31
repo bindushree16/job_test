@@ -28,15 +28,12 @@ pipelines:
             - printenv
             - bump_semver v1.0.0 minor
             - compare_git --resource sample_jobQ
-            - compare_git --commit-range e84e1fe945bb016f7a72173f1d1c546ed6c60b66..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ/gitRepo
-#             - compare_git --resource test --commit-range HEAD~2..HEAD
-#             - compare_git --commit-range 968cc732f0194516303157a09a3b245e86b8a408..master --path $STEP_DEPENDENCY_STATE_DIR/resources/test
-#             - compare_git e84e1f --commit-range HEAD~2..HEAD
-            
+            - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
+#             - compare_git --commit-range e84e1fe945bb016f7a72173f1d1c546ed6c60b66..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ/gitRepo            
 
       - name: test2u18
         type: bash
-        triggeredBy:
+        requires:
           resources:
             - sample_jobQ
         execution:
