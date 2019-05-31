@@ -54,9 +54,9 @@ pipelines:
         requires:
           resources:
             - sample_jobQ
-#         triggeredBy:
-#           resources:
-#             - sample_jobQ
+        triggeredBy:
+          resources:
+            - sample_jobQ
         execution:
           onStart:
             - printenv
