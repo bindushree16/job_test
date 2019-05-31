@@ -66,7 +66,7 @@ pipelines:
         requires:
           resources:
             - sample_jobQ 
-        execution:e
+        execution:
           onStart:
             - printenv
           onExecute:
