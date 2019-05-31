@@ -21,7 +21,7 @@ pipelines:
         configuration:
           nodePool: kermit_ubuntu_pool
         requires:
-          steps:
+          resources:
             - sample_jobQ   
         execution:
           onStart:
@@ -61,7 +61,7 @@ pipelines:
 #           resources:
 #             - sample_jobQ
         triggeredBy:
-          resources:
+          steps:
             - test2u18
         execution:
           onStart:
