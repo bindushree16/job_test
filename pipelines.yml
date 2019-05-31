@@ -20,10 +20,10 @@ pipelines:
         type: bash
         requires:
           resources:
-            - smaple_jobQ
+            - sample_jobQ
         triggeredBy:
           resources:
-            - smaple_jobQ    
+            - sample_jobQ    
         execution:
           onStart:
             - printenv
