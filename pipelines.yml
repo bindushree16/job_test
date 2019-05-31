@@ -79,6 +79,7 @@ pipelines:
             - printenv
           onExecute:
             - printenv
+            - docker images
             - bump_semver v1.0.0 minor
             - compare_git --resource sample_jobQ
             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
