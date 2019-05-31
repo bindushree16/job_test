@@ -18,6 +18,9 @@ pipelines:
     steps:
       - name: test1u16
         type: bash
+        triggeredBy:
+          resources:
+            - smaple_jobQ
         requires:
           resources:
             - sample_jobQ
@@ -50,7 +53,10 @@ pipelines:
             
 
       - name: test3c7
-        type: bash 
+        type: bash
+        triggeredBy:
+          resources:
+            - smaple_jobQ
         requires:
           resources:
             - sample_jobQ
