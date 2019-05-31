@@ -40,7 +40,7 @@ pipelines:
           nodePool: kermit_ubuntu18_pool
         triggeredBy:
           resources:
-            - sample_jobQ
+            - test1u16
         execution:
           onStart:
             - printenv
@@ -62,7 +62,7 @@ pipelines:
 #             - sample_jobQ
         triggeredBy:
           resources:
-            - sample_jobQ
+            - test2u18
         execution:
           onStart:
             - printenv
