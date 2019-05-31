@@ -63,7 +63,7 @@ pipelines:
         triggeredBy:
           steps:
             - test2u18
-        requires:
+#         requires:
           resources:
             - sample_jobQ
         execution:
