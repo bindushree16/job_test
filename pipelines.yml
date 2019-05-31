@@ -64,8 +64,8 @@ pipelines:
           steps:
             - test2u18
 #         requires:
-          resources:
-            - sample_jobQ
+#           resources:
+#             - sample_jobQ
         execution:
           onStart:
             - printenv
