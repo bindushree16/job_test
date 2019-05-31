@@ -22,7 +22,7 @@ pipelines:
           nodePool: kermit_ubuntu_pool
         triggeredBy:
           steps:
-            - test3c7
+            - test2u18
         requires:
           resources:
             - sample_jobQ
