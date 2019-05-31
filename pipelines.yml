@@ -38,7 +38,7 @@ pipelines:
         type: bash
         configuration:
           nodePool: kermit_ubuntu18_pool
-        requires:
+        triggeredBy:
           resources:
             - sample_jobQ
         execution:
@@ -57,12 +57,12 @@ pipelines:
         type: bash
         configuration:
           nodePool: kermit_centos_pool
-        requires:
-          resources:
-            - sample_jobQ
-#         triggeredBy:
+#         requires:
 #           resources:
 #             - sample_jobQ
+        triggeredBy:
+          resources:
+            - sample_jobQ
         execution:
           onStart:
             - printenv
