@@ -64,6 +64,7 @@ pipelines:
           runtime:            
             type: image
             image:
+              custom
                 name: drydock/c7node
                 tag: master
                 options: "" 
