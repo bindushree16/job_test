@@ -8,10 +8,6 @@ resources:
       integrationName: bindu_github
       branches:
         only: master
-     # files:
-      #  except: pipelines.yml
-#       buildOn:
-#         commit: false
     version:
       sha: master
 
@@ -43,9 +39,9 @@ pipelines:
         triggeredBy:
           steps:
             - test1u16
-#         requires:
-#           resources:
-#             - sample_jobQ 
+        requires:
+          resources:
+            - sample_jobQ 
         execution:
           onStart:
             - printenv
