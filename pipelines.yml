@@ -20,7 +20,7 @@ pipelines:
         type: bash
         configuration:
           nodePool: kermit_ubuntu_pool
-        requires:
+        triggeredBy:
           resources:
             - sample_jobQ   
         execution:
