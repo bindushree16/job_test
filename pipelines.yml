@@ -16,56 +16,56 @@ resources:
 pipelines:
   - name: pipelinejob
     steps:
-      - name: test1u16
-        type: bash
-        configuration:
-          nodePool: kermit_ubuntu_pool
-        triggeredBy:
-          resources:
-            - sample_jobQ   
-        execution:
-          onStart:
-            - printenv
-          onExecute:
-            - printenv
-            - bump_semver v1.0.0 minor
-            - compare_git --resource sample_jobQ
-            - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
-            - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ           
-            - compare_git --path  $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ  --commit-range HEAD~2..HEAD
+#       - name: test1u16
+#         type: bash
+#         configuration:
+#           nodePool: kermit_ubuntu_pool
+#         triggeredBy:
+#           resources:
+#             - sample_jobQ   
+#         execution:
+#           onStart:
+#             - printenv
+#           onExecute:
+#             - printenv
+#             - bump_semver v1.0.0 minor
+#             - compare_git --resource sample_jobQ
+#             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
+#             - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ           
+#             - compare_git --path  $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ  --commit-range HEAD~2..HEAD
 
-      - name: test2u18
-        type: bash
-        configuration:
-          nodePool: kermit_ubuntu18_pool
-        triggeredBy:
-          steps:
-            - test1u16
-        requires:
-          resources:
-            - sample_jobQ 
-        execution:
-          onStart:
-            - printenv
-            - echo "starting now"
-          onExecute:
-            - printenv
-            - bump_semver v1.0.0 minor
-            - compare_git --resource sample_jobQ
-            - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
-            - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
+#       - name: test2u18
+#         type: bash
+#         configuration:
+#           nodePool: kermit_ubuntu18_pool
+#         triggeredBy:
+#           steps:
+#             - test1u16
+#         requires:
+#           resources:
+#             - sample_jobQ 
+#         execution:
+#           onStart:
+#             - printenv
+#             - echo "starting now"
+#           onExecute:
+#             - printenv
+#             - bump_semver v1.0.0 minor
+#             - compare_git --resource sample_jobQ
+#             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
+#             - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
             
 
       - name: test3c7
         type: bash
         configuration:
           nodePool: kermit_centos_pool
-        triggeredBy:
-          steps:
-            - test2u18
-#         requires:
-#           resources:
-#             - sample_jobQ
+#         triggeredBy:
+#           steps:
+#             - test2u18
+        requires:
+          resources:
+            - sample_jobQ
         execution:
           onStart:
             - printenv
