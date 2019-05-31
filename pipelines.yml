@@ -51,12 +51,12 @@ pipelines:
 
       - name: test3c7
         type: bash
-#         requires:
-#           resources:
-#             - sample_jobQ
-        triggeredBy:
+        requires:
           resources:
             - sample_jobQ
+#         triggeredBy:
+#           resources:
+#             - sample_jobQ
         execution:
           onStart:
             - printenv
