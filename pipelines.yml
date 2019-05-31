@@ -8,6 +8,8 @@ resources:
       integrationName: bindu_github
       branches:
         only: master
+      files:
+        except: pipelines.yml
     version:
       sha: master
 
@@ -39,7 +41,7 @@ pipelines:
         triggeredBy:
           steps:
             - test1u16
-        requires:
+#         requires:
           resources:
             - sample_jobQ 
         execution:
@@ -59,11 +61,12 @@ pipelines:
         configuration:
           nodePool: kermit_centos_pool
 #         requires:
-#           resources:
-#             - sample_jobQ
+
         triggeredBy:
           steps:
             - test2u18
+          resources:
+            - sample_jobQ
         execution:
           onStart:
             - printenv
