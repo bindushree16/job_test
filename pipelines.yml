@@ -23,7 +23,7 @@ pipelines:
             - smaple_jobQ
         triggeredBy:
           resources:
-            - sample_jobQ    
+            - smaple_jobQ    
         execution:
           onStart:
             - printenv
