@@ -60,13 +60,13 @@ pipelines:
         type: bash
         configuration:
           nodePool: kermit_centos_pool
-        triggeredBy:
-          steps:
-            - test2u18
+#         triggeredBy:
+#           steps:
+#             - test2u18
         requires:
           resources:
             - sample_jobQ 
-        execution:
+        execution:e
           onStart:
             - printenv
           onExecute:
