@@ -58,8 +58,15 @@ pipelines:
 
       - name: test3c7
         type: bash
-        configuration:
-          nodePool: kermit_centos_pool
+#         configuration:
+#           nodePool: kermit_centos_pool
+        setup:
+          runtime:            
+            type: image
+            image:
+                name: drydock/c7node
+                tag: master
+                options: "" 
         triggeredBy:
           steps:
             - test1u16
