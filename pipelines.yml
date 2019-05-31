@@ -18,7 +18,7 @@ pipelines:
     steps:
       - name: test1u16
         type: bash
-        triggeredBy: #requires:
+        requires:
           resources:
             - sample_jobQ
         execution:
