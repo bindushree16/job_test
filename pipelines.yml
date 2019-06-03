@@ -61,37 +61,37 @@ pipelines:
             - bump_semver v1.0.0 minor
             - compare_git --resource sample_jobQ
             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
-            - compare_git --commit-range e84e1fe945bb016f7a72173f1d1c546ed6c60b66..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
+            - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
             - update_commit_status job_test --status success --message “my status push” --context $STEP_NAME
  
              
-      - name: test3c7
-        type: bash
-#         configuration:
-#           nodePool: kermit_centos_pool
-        setup:
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/c7node
-                tag: master
-                options: "" 
-        triggeredBy:
-          steps:
-            - test1u16
-        requires:
-          resources:
-            - sample_jobQ 
-        execution:
-          onStart:
-            - printenv
-          onExecute:
-            - printenv
-            - docker images
-            - openssl genrsa -out key.pem 1024 
-#             - bump_semver v1.0.0 minor
-#             - compare_git --resource sample_jobQ
-#             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
-#             - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
+#       - name: test3c7
+#         type: bash
+# #         configuration:
+# #           nodePool: kermit_centos_pool
+#         setup:
+#           runtime:            
+#             type: image
+#             image:
+#               custom:
+#                 name: drydock/c7node
+#                 tag: master
+#                 options: "" 
+#         triggeredBy:
+#           steps:
+#             - test1u16
+#         requires:
+#           resources:
+#             - sample_jobQ 
+#         execution:
+#           onStart:
+#             - printenv
+#           onExecute:
+#             - printenv
+#             - docker images
+#             - openssl genrsa -out key.pem 1024 
+# #             - bump_semver v1.0.0 minor
+# #             - compare_git --resource sample_jobQ
+# #             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
+# #             - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
            
