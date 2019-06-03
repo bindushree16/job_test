@@ -34,7 +34,7 @@ pipelines:
 #             - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ           
 #             - compare_git --path  $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ  --commit-range HEAD~2..HEAD
 #             - update_commit_status sample_jobQ --status processing --message “my_status_is pushed” --context $STEP_NAME
-            - read_json bindu.json "LESSER_SECRET_FORMULA"
+            - read_json job_test/bindu.json "LESSER_SECRET_FORMULA"
 
       - name: test2u18
         type: bash
