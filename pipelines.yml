@@ -18,8 +18,16 @@ pipelines:
     steps:
       - name: test1u16
         type: bash
-        configuration:
-          nodePool: kermit_ubuntu_pool
+        setup:
+          runtime:            
+            type: image
+            image:
+              custom:
+                name: drydock/u18node
+                tag: master
+                options: "" 
+#         configuration:
+#           nodePool: kermit_ubuntu_pool
         triggeredBy:
           resources:
             - sample_jobQ
