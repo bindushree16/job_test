@@ -54,8 +54,9 @@ pipelines:
             - compare_git --resource sample_jobQ
             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
             - compare_git --commit-range e84e1fe945bb016f7a72173f1d1c546ed6c60b66..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
-#             92ba4f71fe362aafd9f3576453f0fd73b9e5adf3
-
+            - update_commit_status job_test --status success --message “my status push” --context $STEP_NAME
+ 
+             
       - name: test3c7
         type: bash
 #         configuration:
