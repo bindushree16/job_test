@@ -27,7 +27,7 @@ pipelines:
           onStart:
             - printenv
           onExecute:
-            - printenv
+#             - printenv
             - pwd
             - pushd $res_sample_jobQ_resourcePath
             - echo "$res_sample_jobQ_resourcePath"
@@ -64,15 +64,15 @@ pipelines:
             - printenv
             - echo "starting now"
           onExecute:
-            - printenv
-            - echo "hi"
+#             - printenv
+            - pushd $res_sample_jobQ_resourcePath
 #             - bump_semver v1.0.0 minor
 #             - compare_git --resource sample_jobQ
 #             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
 #             - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
 #             - update_commit_status sample_jobQ --status success --message “my status push” --context $STEP_NAME
             - read_json secrets.json "LESSER_SECRET_FORMULA"
-
+            - popd
              
       - name: test3c7
         type: bash
@@ -97,7 +97,9 @@ pipelines:
             - printenv
           onExecute:
             - printenv
+            - pushd $res_sample_jobQ_resourcePath
             - read_json secrets.json "LESSER_SECRET_FORMULA"
+            - popd
 
 #             - docker images
 #             - openssl genrsa -out key.pem 1024 
