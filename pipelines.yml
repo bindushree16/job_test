@@ -31,6 +31,7 @@ pipelines:
             - pwd
             - pushd $res_sample_jobQ_resourcePath
             - echo "$res_sample_jobQ_resourcePath"
+            - retry_command nod --version
             - ls -la
 #             - bump_semver v1.0.0 minor
 #             - compare_git --resource sample_jobQ
