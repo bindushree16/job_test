@@ -8,8 +8,8 @@ resources:
       integrationName: bindu_github
       branches:
         only: master
-      files:
-        except: pipelines.yml
+#       files:
+#         except: pipelines.yml
     version:
       sha: master
 
