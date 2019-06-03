@@ -28,6 +28,7 @@ pipelines:
             - printenv
           onExecute:
             - printenv
+            - pwd
             - pushd $res_sample_jobQ_resourcePath
             - echo "$res_sample_jobQ_resourcePath"
             - ls -la
