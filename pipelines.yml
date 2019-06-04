@@ -71,9 +71,9 @@ pipelines:
         triggeredBy:
           steps:
             - test1u16
-        requires:
-          integrations:
-            - slack_bindu
+#         requires:
+#           integrations:
+#             - slack_bindu
         triggeredBy:    
           resources:
             - sample_jobW 
