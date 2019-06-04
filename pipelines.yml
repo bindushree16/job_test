@@ -12,6 +12,17 @@ resources:
 #         except: pipelines.yml
     version:
       sha: master
+      
+resources:
+  - name: sample_jobW
+    type: gitRepo
+    repoPath: bindushree16/jobIn
+    configuration:
+      integrationName: bindu_github
+      branches:
+        only: master
+    version:
+      sha: master     
 
 pipelines:
   - name: pipelinejob
@@ -41,6 +52,8 @@ pipelines:
 #             - update_commit_status sample_jobQ --status processing --message “my_status_is pushed” --context $STEP_NAME
             - read_json secrets.json "LESSER_SECRET_FORMULA"
             - popd
+        outputResources:
+          - sample_jobW    
 
       - name: test2u18
         type: bash
