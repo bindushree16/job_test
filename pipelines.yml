@@ -54,7 +54,7 @@ pipelines:
 #             - read_json secrets.json "LESSER_SECRET_FORMULA"
             - write_output sample_jobQ imageTag=v1.0.0
             - replicate_resource sample_jobQ sample_jobW --match-settings
-            - replicate_resource sample_jobQ sample_jobW
+           # - replicate_resource sample_jobQ sample_jobW
 #             - popd
         outputResources:
           - sample_jobW    
