@@ -13,7 +13,7 @@ resources:
     version:
       sha: master
 
-  - name: sample_jobW
+  - name: sample_jobOUT
     type: gitRepo
     repoPath: bindushree16/jobIn
     configuration:
@@ -52,13 +52,13 @@ pipelines:
 #             - compare_git --path  $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ  --commit-range HEAD~2..HEAD
 #             - update_commit_status sample_jobQ --status processing --message “my_status_is pushed” --context $STEP_NAME
 #             - read_json secrets.json "LESSER_SECRET_FORMULA"
-             - write_output sample_jobW env1=val1
+             - write_output sample_jobOUT env1=val1
              
 #             - replicate_resource sample_jobQ sample_jobW --match-settings
            # - replicate_resource sample_jobQ sample_jobW
 #             - popd
         outputResources:
-          - sample_jobW    
+          - sample_jobOUT   
 
       - name: test2u18
         type: bash
@@ -81,7 +81,7 @@ pipelines:
         triggeredBy: 
 #         requires:
           resources:
-            - sample_jobW 
+            - sample_jobOUT
         execution:
           onStart:
             - printenv
