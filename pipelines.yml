@@ -58,6 +58,8 @@ pipelines:
           steps:
             - test1u16
         requires:
+          integrations:
+            - slack_bindu
           resources:
             - sample_jobQ 
         execution:
