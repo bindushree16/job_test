@@ -20,8 +20,8 @@ resources:
       integrationName: bindu_github
       branches:
         only: master
-      buildOn:
-         commit: false 
+#       buildOn:
+#          commit: false 
     version:
       sha: master     
 
@@ -119,7 +119,7 @@ pipelines:
                 options: "" 
         triggeredBy:
           steps:
-            - test1u16
+            - test2u18
         requires:
           resources:
             - sample_jobQ 
