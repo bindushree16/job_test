@@ -74,6 +74,7 @@ pipelines:
         requires:
           integrations:
             - slack_bindu
+        triggeredBy:    
           resources:
             - sample_jobW 
         execution:
