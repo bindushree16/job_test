@@ -81,7 +81,7 @@ pipelines:
             - echo "starting now"
           onExecute:
 #             - printenv
-            - pushd $res_sample_jobQ_resourcePath
+#             - pushd $res_sample_jobQ_resourcePath
 #             - bump_semver v1.0.0 minor
 #             - compare_git --resource sample_jobQ
 #             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
@@ -89,7 +89,7 @@ pipelines:
             - update_commit_status sample_jobQ --status success --message "my status push" --context $STEP_NAME
             - read_json secrets.json "LESSER_SECRET_FORMULA"
 #             - send_notification slack_bindu
-            - popd
+#             - popd
           onSuccess:
             - send_notification slack_bindu
           onFailure:
