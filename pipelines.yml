@@ -68,9 +68,9 @@ pipelines:
                 options: "" 
 #         configuration:
 #           nodePool: kermit_ubuntu18_pool
-        triggeredBy:
-          steps:
-            - test1u16
+#         triggeredBy:
+#           steps:
+#             - test1u16
 #         requires:
 #           integrations:
 #             - slack_bindu
