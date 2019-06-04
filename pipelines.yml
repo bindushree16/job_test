@@ -20,6 +20,8 @@ resources:
       integrationName: bindu_github
       branches:
         only: master
+      buildOn:
+         commit: false 
     version:
       sha: master     
 
