@@ -73,7 +73,7 @@ pipelines:
           integrations:
             - slack_bindu
           resources:
-            - sample_jobQ 
+            - sample_jobW 
         execution:
           onStart:
             - printenv
