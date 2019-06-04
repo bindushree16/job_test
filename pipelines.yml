@@ -25,7 +25,7 @@ resources:
       sha: master     
 
 pipelines:
-  - name: pipelinejob
+  - name: pipelinejob1
     steps:
       - name: test1u16
         type: bash
