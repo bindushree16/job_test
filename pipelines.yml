@@ -81,7 +81,7 @@ pipelines:
         triggeredBy: 
 #         requires:
           resources:
-            - sample_jobOUT
+            - sample_jobW
         execution:
           onStart:
             - printenv
