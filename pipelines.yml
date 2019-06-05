@@ -8,8 +8,6 @@ resources:
       integrationName: bindu_github
       branches:
         only: master
-#       files:
-#         except: pipelines.yml
     version:
       sha: master
 
@@ -20,8 +18,6 @@ resources:
       integrationName: bindu_github
       branches:
         only: master
-#       buildOn:
-#          commit: false 
     version:
       sha: master     
 
@@ -38,7 +34,7 @@ pipelines:
         execution:
           onStart:
             - printenv
-          onExecute:
+          onExecute: 
              - printenv
 #             - pwd
 #             - pushd $res_sample_jobQ_resourcePath
@@ -72,14 +68,14 @@ pipelines:
                 options: "" 
 #         configuration:
 #           nodePool: kermit_ubuntu18_pool
-#         triggeredBy:
-#           steps:
-#             - test1u16
+        triggeredBy:
+          steps:
+            - test1u16
 #         requires:
 #           integrations:
 #             - slack_bindu
-        triggeredBy: 
-#         requires:
+#         triggeredBy: 
+        requires:
           resources:
             - sample_jobW
         execution:
