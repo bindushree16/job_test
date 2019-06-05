@@ -3,7 +3,7 @@
 resources:
   - name: sample_jobQ 
     type: gitRepo
-    repoPath: bindushree16/job_test
+    repoPath: bindushree16/utility_func
     configuration:
       integrationName: bindu_github
       branches:
