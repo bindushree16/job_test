@@ -36,7 +36,7 @@ pipelines:
             type: image
             image:
               auto:
-                language: nodjs
+                language: nodejs
                 versions: 
                   - v10.15.3
         requires:
