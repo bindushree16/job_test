@@ -38,7 +38,7 @@ pipelines:
               auto:
                 language: nodejs
                 versions: 
-                  - v10.15.3
+                  - 10.15.3
         requires:
           integrations:
             - slack_bindu      
