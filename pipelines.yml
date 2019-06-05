@@ -32,6 +32,9 @@ pipelines:
           environmentVariables:
             normal:
               ENV1: value1
+        requires:
+          integrations:
+            - slack_bindu      
         triggeredBy:
           resources:
             - sample_jobQ
@@ -61,6 +64,12 @@ pipelines:
 #             - replicate_resource sample_jobQ sample_jobW --match-settings
            # - replicate_resource sample_jobQ sample_jobW
 # #             - popd
+          onSuccess:
+            - send_notification slack_bindu
+          onFailure:
+            - send_notification slack_bindu
+          onComplete: #always
+            - send_notification slack_bindu
 #         outputResources:
 #           - sample_jobW  
 
@@ -79,9 +88,9 @@ pipelines:
         triggeredBy:
           steps:
             - test1u16
-#         requires:
-#           integrations:
-#             - slack_bindu
+        requires:
+          integrations:
+            - slack_bindu
 #         triggeredBy: 
         requires:
           resources:
@@ -104,12 +113,12 @@ pipelines:
 #             - read_json secrets.json "LESSER_SECRET_FORMULA"
 #             - send_notification slack_bindu
 #             - popd
-#           onSuccess:
-#             - send_notification slack_bindu
-#           onFailure:
-#             - send_notification slack_bindu
-#           onComplete: #always
-#             - send_notification slack_bindu
+          onSuccess:
+            - send_notification slack_bindu
+          onFailure:
+            - send_notification slack_bindu
+          onComplete: #always
+            - send_notification slack_bindu
 #           onCancel:
 #             - send_notification slack_bindu
 
@@ -132,6 +141,8 @@ pipelines:
         requires:
           resources:
             - sample_jobQ 
+          integrations:
+            - slack_bindu
         execution:
           onStart:
             - printenv
@@ -147,4 +158,9 @@ pipelines:
 #             - compare_git --resource sample_jobQ
 #             - compare_git --resource sample_jobQ --commit-range HEAD~2..HEAD
 #             - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
-           
+          onSuccess:
+            - send_notification slack_bindu
+          onFailure:
+            - send_notification slack_bindu
+          onComplete: #always
+            - send_notification slack_bindu
