@@ -32,6 +32,13 @@ pipelines:
           environmentVariables:
             normal:
               ENV1: value1
+          runtime:            
+            type: image
+            image:
+              auto:
+                language: nodjs
+                versions: 
+                  - v10.15.3
         requires:
           integrations:
             - slack_bindu      
