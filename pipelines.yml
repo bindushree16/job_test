@@ -120,7 +120,7 @@ pipelines:
                 options: "" 
         triggeredBy:
           steps:
-            - test2u16
+            - test1u16
         requires:
           resources:
             - sample_jobQ 
