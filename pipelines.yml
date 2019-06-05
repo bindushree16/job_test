@@ -11,15 +11,15 @@ resources:
     version:
       sha: master
 
-  - name: sample_jobW
-    type: gitRepo
-    repoPath: bindushree16/jobIn
-    configuration:
-      integrationName: bindu_github
-      branches:
-        only: master
-    version:
-      sha: master     
+#   - name: sample_jobW
+#     type: gitRepo
+#     repoPath: bindushree16/jobIn
+#     configuration:
+#       integrationName: bindu_github
+#       branches:
+#         only: master
+#     version:
+#       sha: master     
 
 pipelines:
   - name: pipelinejob1
@@ -28,6 +28,10 @@ pipelines:
         type: bash
         configuration:
           nodePool: kermit_ubuntu_pool
+        setup:
+          environmentVariables:
+            normal:
+              ENV1: value1
         triggeredBy:
           resources:
             - sample_jobQ
@@ -35,6 +39,10 @@ pipelines:
           onStart:
             - printenv
           onExecute: 
+             - printenv
+             - test $ENV1=value1
+             - echo $ENV1=value1 
+             - switch_env nodejs 8.16.0
              - printenv
 #             - pwd
 #             - pushd $res_sample_jobQ_resourcePath
@@ -48,13 +56,13 @@ pipelines:
 #             - compare_git --path  $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ  --commit-range HEAD~2..HEAD
 #             - update_commit_status sample_jobQ --status processing --message “my_status_is pushed” --context $STEP_NAME
 #             - read_json secrets.json "LESSER_SECRET_FORMULA"
-             - write_output sample_jobQ imageTag=v1.0.0
+#              - write_output sample_jobW imageTag=v1.0.0
              
 #             - replicate_resource sample_jobQ sample_jobW --match-settings
            # - replicate_resource sample_jobQ sample_jobW
-#             - popd
-        outputResources:
-          - sample_jobW  
+# #             - popd
+#         outputResources:
+#           - sample_jobW  
 
       - name: test2u18
         type: bash
@@ -77,7 +85,7 @@ pipelines:
 #         triggeredBy: 
         requires:
           resources:
-            - sample_jobW
+            - sample_jobQ
         execution:
           onStart:
             - printenv
@@ -120,7 +128,7 @@ pipelines:
                 options: "" 
         triggeredBy:
           steps:
-            - test1u16
+            - test2u18
         requires:
           resources:
             - sample_jobQ 
