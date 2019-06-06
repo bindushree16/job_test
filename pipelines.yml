@@ -26,8 +26,8 @@ pipelines:
     steps:
       - name: test1u16
         type: bash
-        configuration:
-          nodePool: kermit_ubuntu_pool
+#         configuration:
+#           nodePool: kermit_ubuntu_pool
         setup:
           environmentVariables:
             normal:
@@ -35,10 +35,17 @@ pipelines:
           runtime:            
             type: image
             image:
-              auto:
-                language: nodejs
-                versions: 
-                  - 10.15.3
+              custom:
+                name: drydock/u16node
+                tag: master
+                options: ""   
+#           runtime:            
+#             type: image
+#             image:
+#               auto:
+#                 language: nodejs
+#                 versions: 
+#                   - 10.15.3
         requires:
           integrations:
             - slack_bindu      
@@ -82,14 +89,14 @@ pipelines:
 
       - name: test2u18
         type: bash
-        setup:
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/u18node
-                tag: master
-                options: "" 
+#         setup:
+#           runtime:            
+#             type: image
+#             image:
+#               custom:
+#                 name: drydock/u18node
+#                 tag: master
+#                 options: "" 
 #         configuration:
 #           nodePool: kermit_ubuntu18_pool
         triggeredBy:
@@ -118,7 +125,10 @@ pipelines:
 #             - compare_git --commit-range 92ba4f71fe362aafd9f3576453f0fd73b9e5adf3..master --path $STEP_DEPENDENCY_STATE_DIR/resources/sample_jobQ 
 #             - update_commit_status sample_jobQ --status success --message "my status push" --context $STEP_NAME
 #             - read_json secrets.json "LESSER_SECRET_FORMULA"
-#             - send_notification slack_bindu
+#             - send_notification slack_bindu 
+#             - save_tests $res_sample_jobQ_resourcePath/testresults.xml 
+#             - cache_files txt.sh my_cache
+#             - restore_cache my_cache txt.sh
 #             - popd
           onSuccess:
             - send_notification slack_bindu
