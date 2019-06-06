@@ -2,7 +2,7 @@
  
 resources:
   - name: sample_jobQ 
-    type: gitRepo
+    type: gitRepof
     repoPath: bindushree16/job_test
     configuration:
       integrationName: bindu_github
