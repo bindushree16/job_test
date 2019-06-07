@@ -1,15 +1,23 @@
  # for git resources 
- 
 resources:
-  - name: sample_jobQ 
-    type: gitRepo
-    repoPath: bindushree16/job_testgit
+  - name: sample_jobQ
+    type: GitRepo
     configuration:
-      integrationName: bindu_github
+      gitProvider: bindu_github
+      path: bindushree16/job_testgit
       branches:
-        only: master
-    version:
-      sha: master
+        include: master 
+ 
+# resources:
+#   - name: sample_jobQ 
+#     type: gitRepo
+#     repoPath: bindushree16/job_testgit
+#     configuration:
+#       integrationName: bindu_github
+#       branches:
+#         only: master
+#     version:
+#       sha: master
 
 #   - name: sample_jobW
 #     type: gitRepo
