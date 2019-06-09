@@ -41,6 +41,14 @@ pipelines:
           
       - name: test2
         type: bash
+        setup:
+          runtime:            
+            type: image
+            image:
+              custom:
+                name: drydock/c7
+                tag: master
+                options:
         requires:
           resources:
             - sample_jobQ
