@@ -24,15 +24,15 @@ pipelines:
       - name: test1
         type: Bash
         configuration:
+          inputResources:
+            - sample_jobQ
           runtime:            
             type: image
             image:
               custom:
                 name: drydock/c7cppall
                 tag: master
-                options: ""     
-          inputResources:
-            - sample_jobQ
+                options: "" 
         execution:
           onExecute: 
              - printenv
