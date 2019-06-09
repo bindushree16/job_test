@@ -97,7 +97,7 @@ pipelines:
 #                 options: "" 
 #         configuration:
 #           nodePool: kermit_ubuntu18_pool
-        requires:
+        triggeredBy:
           steps:
             - test1u16
 #         requires:
