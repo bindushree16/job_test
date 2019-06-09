@@ -60,16 +60,16 @@ pipelines:
 #             - printenv      
 
      
-      - name: in
-        type: bash
-        triggeredBy:
-          resources:
-            - sample_jobQ
-          steps:
-            - test1  
-        execution:
-          onExecute:
-            - ls -la
+#       - name: in
+#         type: bash
+#         triggeredBy:
+#           resources:
+#             - sample_jobQ
+#           steps:
+#             - test1  
+#         execution:
+#           onExecute:
+#             - ls -la
          
              
 #              - test $ENV1=value1
