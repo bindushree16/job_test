@@ -29,13 +29,13 @@ pipelines:
           environmentVariables:
             normal:
               ENV1: value1
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/u16node
-                tag: master
-                options: ""   
+#           runtime:            
+#             type: image
+#             image:
+#               custom:
+#                 name: drydock/u16node
+#                 tag: master
+#                 options: ""   
           runtime:            
             type: image
             image:
@@ -50,8 +50,8 @@ pipelines:
           resources:
             - sample_jobQ
         execution:
-          onStart:
-            - printenv
+#           onStart:
+#             - printenv
           onExecute: 
              - printenv
              - gcc --version
