@@ -38,6 +38,15 @@ pipelines:
           onExecute: 
              - printenv
              - gcc --version
+          
+      - name: test2u18
+        type: bash
+        requires:
+          steps:
+            - test1u16
+        execution:
+          onExecute:
+            - printenv      
              
 #              - test $ENV1=value1
 #              - echo $ENV1=value1 
@@ -69,14 +78,14 @@ pipelines:
 #         outputResources:
 #           - sample_jobW  
 
-      - name: test2u18
-        type: bash
-        requires:
-          steps:
-            - test1u16
-        execution:
-          onExecute:
-            - printenv
+#       - name: test2u18
+#         type: bash
+#         requires:
+#           steps:
+#             - test1u16
+#         execution:
+#           onExecute:
+#             - printenv
 #             - echo $env1
 #             - test $env1=val1
             
