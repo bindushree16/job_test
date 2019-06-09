@@ -97,14 +97,14 @@ pipelines:
 #                 options: "" 
 #         configuration:
 #           nodePool: kermit_ubuntu18_pool
-        resources
+        requires
           steps:
             - test1u16
 #         requires:
 #           integrations:
 #             - slack_bindu
 #         triggeredBy: 
-        requires:
+#         requires:
           resources:
             - sample_jobQ
         execution:
