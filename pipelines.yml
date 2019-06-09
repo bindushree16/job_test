@@ -39,25 +39,38 @@ pipelines:
              - printenv
              - gcc --version
           
-      - name: test2
+#       - name: test2
+#         type: bash
+#         setup:
+#           runtime:            
+#             type: image
+#             image:
+#               custom:
+#                 name: drydock/c7
+#                 tag: master
+#                 options:
+#         requires:
+#           resources:
+#             - sample_jobQ
+#         triggeredBy:
+#           steps:
+#             - test1
+#         execution:
+#           onExecute:
+#             - printenv      
+
+     
+      - name: in
         type: bash
-        setup:
-          runtime:            
-            type: image
-            image:
-              custom:
-                name: drydock/c7
-                tag: master
-                options:
-        requires:
+        triggeredBy:
           resources:
             - sample_jobQ
-        triggeredBy:
           steps:
-            - test1
+            - test1  
         execution:
           onExecute:
-            - printenv      
+            - ls -la
+         
              
 #              - test $ENV1=value1
 #              - echo $ENV1=value1 
