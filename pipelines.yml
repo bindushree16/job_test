@@ -36,16 +36,16 @@ pipelines:
                 name: drydock/u16node
                 tag: master
                 options: ""   
-#           runtime:            
-#             type: image
-#             image:
-#               auto:
-#                 language: nodejs
-#                 versions: 
-#                   - 10.15.3
-        requires:
-          integrations:
-            - slack_bindu      
+          runtime:            
+            type: image
+            image:
+              custom:
+                name: drydock/c7cppall
+                tag: master
+                options: ""
+#         requires:
+#           integrations:
+#             - slack_bindu      
         triggeredBy:
           resources:
             - sample_jobQ
@@ -54,10 +54,11 @@ pipelines:
             - printenv
           onExecute: 
              - printenv
-             - test $ENV1=value1
-             - echo $ENV1=value1 
-             - switch_env nodejs 8.16.0
-             - printenv
+             - gcc --version
+#              - test $ENV1=value1
+#              - echo $ENV1=value1 
+#              - switch_env nodejs 8.16.0
+#              - printenv
 #             - pwd
 #             - pushd $res_sample_jobQ_resourcePath
 #             - echo "$res_sample_jobQ_resourcePath"
@@ -74,13 +75,13 @@ pipelines:
              
 #             - replicate_resource sample_jobQ sample_jobW --match-settings
            # - replicate_resource sample_jobQ sample_jobW
-# #             - popd
-          onSuccess:
-            - send_notification slack_bindu
-          onFailure:
-            - send_notification slack_bindu
-          onComplete: #always
-            - send_notification slack_bindu
+# # #             - popd
+#           onSuccess:
+#             - send_notification slack_bindu
+#           onFailure:
+#             - send_notification slack_bindu
+#           onComplete: #always
+#             - send_notification slack_bindu
 #         outputResources:
 #           - sample_jobW  
 
@@ -99,9 +100,9 @@ pipelines:
         triggeredBy:
           steps:
             - test1u16
-        requires:
-          integrations:
-            - slack_bindu
+#         requires:
+#           integrations:
+#             - slack_bindu
 #         triggeredBy: 
 #         requires:
           resources:
