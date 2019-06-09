@@ -61,7 +61,7 @@ pipelines:
 
      
       - name: in
-        type: bash
+        type: Bash
         triggeredBy:
           resources:
             - sample_jobQ
