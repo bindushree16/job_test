@@ -87,7 +87,7 @@ pipelines:
 
       - name: test2u18
         type: bash
-#         setup:
+        setup:
 #           runtime:            
 #             type: image
 #             image:
@@ -105,8 +105,8 @@ pipelines:
 #             - slack_bindu
 #         triggeredBy: 
 #         requires:
-          resources:
-            - sample_jobQ
+#           resources:
+#             - sample_jobQ
         execution:
 #           onStart:
 #             - printenv
