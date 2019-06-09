@@ -61,15 +61,15 @@ pipelines:
 #             - printenv      
 
      
-      - name: in
-        type: Bash
-        configuration:     
-          inputSteps:
-            - test1
-        execution:
-          onExecute: 
-             - printenv
-             - gcc --version
+#       - name: in
+#         type: Bash
+#         configuration:     
+#           inputSteps:
+#             - test1
+#         execution:
+#           onExecute: 
+#              - printenv
+#              - gcc --version
          
              
 #              - test $ENV1=value1
