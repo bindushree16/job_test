@@ -25,7 +25,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - sample_jobQ
+            - name: sample_jobQ
           runtime:            
             type: image
             image:
