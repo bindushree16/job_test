@@ -23,7 +23,7 @@ pipelines:
     steps:
       - name: test1
         type: Bash
-        setup:
+        configuration:
           runtime:            
             type: image
             image:
@@ -31,8 +31,7 @@ pipelines:
                 name: drydock/c7cppall
                 tag: master
                 options: ""     
-        triggeredBy:
-          resources:
+          inputResources:
             - sample_jobQ
         execution:
           onExecute: 
@@ -62,14 +61,13 @@ pipelines:
      
       - name: in
         type: Bash
-        triggeredBy:
-          resources:
-            - sample_jobQ
-          steps:
-            - test1  
+        configuration:     
+          inputSteps:
+            - test1
         execution:
-          onExecute:
-            - ls -la
+          onExecute: 
+             - printenv
+             - gcc --version
          
              
 #              - test $ENV1=value1
