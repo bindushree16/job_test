@@ -26,9 +26,9 @@ pipelines:
 #         configuration:
 #           nodePool: kermit_ubuntu_pool
         setup:
-          environmentVariables:
-            normal:
-              ENV1: value1
+#           environmentVariables:
+#             normal:
+#               ENV1: value1
 #           runtime:            
 #             type: image
 #             image:
@@ -97,7 +97,7 @@ pipelines:
 #                 options: "" 
 #         configuration:
 #           nodePool: kermit_ubuntu18_pool
-        triggeredBy:
+        resources
           steps:
             - test1u16
 #         requires:
