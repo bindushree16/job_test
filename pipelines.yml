@@ -104,7 +104,7 @@ pipelines:
 #           integrations:
 #             - slack_bindu
 #         triggeredBy: 
-#         requires:
+        requires:
           resources:
             - sample_jobQ
         execution:
