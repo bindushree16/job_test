@@ -71,16 +71,9 @@ pipelines:
 
       - name: test2u18
         type: bash
-        triggeredBy:
+        requires:
           steps:
             - test1u16
-#         requires:
-#           integrations:
-#             - slack_bindu
-#         triggeredBy: 
-#         requires:
-#           resources:
-#             - sample_jobQ
         execution:
           onExecute:
             - printenv
