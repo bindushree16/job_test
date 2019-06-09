@@ -18,7 +18,7 @@ resources:
 #     version:
 #       sha: master     
 
-pipelines:
+pipeline:
   - name: pipelinejob1
     steps:
       - name: test1
@@ -37,6 +37,48 @@ pipelines:
           onExecute: 
              - printenv
              - gcc --version
+             
+#              pipeline:
+#   - name: pipe1
+#     steps:
+#       - name: test_step_1
+#         type: Bash
+#         configuration:
+#           affinityGroup: bldGroup 
+#           priority: <[0-10000]>
+#           timeoutSeconds: <job timeout limit>
+#           nodePool: <name of the nodePool>
+#           chronological: <true/false>
+#           environmentVariables:
+#             env1: value1
+#             env2: value2
+#           integrations:
+#             - name: dockerHubIntegration
+#             - name: artifactoryIntegration  
+#           inputSteps:
+#             - name: myStep1
+#             - name: myStep2 
+#           inputResources:
+#             - name: myResource1
+#             - name: myResource2
+#               trigger: false    # default true
+#           outputResources:
+#             - name: myOutputResource1  
+#           runtime:            
+#             type: <image/host>
+#             image:
+#               auto:
+#                 language:
+#                 versions:
+#               custom:
+#                 name:
+#                 tag:
+#                 options:
+#                 autoPull: <boolean> # default true; pulls image before run
+
+        execution:
+          onExecute:
+
           
 #       - name: test2
 #         type: bash
