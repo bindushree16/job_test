@@ -21,7 +21,7 @@ resources:
 pipelines:
   - name: pipelinejob1
     steps:
-      - name: test1u16
+      - name: test1
         type: bash
         setup:
           runtime:            
@@ -39,14 +39,14 @@ pipelines:
              - printenv
              - gcc --version
           
-      - name: test2u18
+      - name: test2
         type: bash
         requires:
           resources:
             - sample_jobQ
         triggeredBy:
           steps:
-            - test1u16
+            - test1
         execution:
           onExecute:
             - printenv      
