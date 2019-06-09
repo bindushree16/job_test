@@ -42,6 +42,9 @@ pipelines:
       - name: test2u18
         type: bash
         requires:
+          resources:
+            - sample_jobQ
+        triggeredBy:
           steps:
             - test1u16
         execution:
