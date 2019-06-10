@@ -1,42 +1,90 @@
- # for git resources 
 resources:
-  - name: sample_jobQ
+  - name: gitResource1211
     type: GitRepo
+#     repoPath: bindushree16/test_c7java
     configuration:
       gitProvider: bindu_github
-      path: bindushree16/job_testgit
+      path: bindushree16/test_c7java
       branches:
-        include: master 
-
-#   - name: sample_jobW
-#     type: gitRepo
-#     repoPath: bindushree16/jobIn
-#     configuration:
-#       integrationName: bindu_github
-#       branches:
-#         only: master
-#     version:
-#       sha: master     
-
+        only: master
+    version:
+      sha: master
+      
 pipelines:
-  - name: pipelinejob1
+  - name: pipelineQA
     steps:
-      - name: test1
+      - name: test
         type: Bash
         configuration:
           inputResources:
-            - name: sample_jobQ
-          runtime:            
+            - name: gitResource1211
+        execution:
+          onExecute:
+            - printenv
+            - pushd $res_gitResource12_resourcePath
+            - docker build -t=test:dev .
+      - name: test1
+        type: Bash
+        execution:
+          onExecute:
+#             - _set_jdk openjdk8
+#             - java --version
+#             - echo $JAVA_HOME
+#             - echo $PATH
+            - _set_jdk openjdk11
+            - java --version
+            - echo $JAVA_HOME
+            - echo $PATH
+        configuration:
+          inputSteps:
+            - name: test
+          runtime:
             type: image
             image:
               custom:
-                name: drydock/c7cppall
-                tag: master
-                options: "" 
-        execution:
-          onExecute: 
-             - printenv
-             - gcc --version
+                name: test
+                tag: dev
+                autoPull: false
+
+#  # for git resources 
+# resources:
+#   - name: sample_jobQ
+#     type: GitRepo
+#     configuration:
+#       gitProvider: bindu_github
+#       path: bindushree16/job_testgit
+#       branches:
+#         include: master 
+
+# #   - name: sample_jobW
+# #     type: gitRepo
+# #     repoPath: bindushree16/jobIn
+# #     configuration:
+# #       integrationName: bindu_github
+# #       branches:
+# #         only: master
+# #     version:
+# #       sha: master     
+
+# pipelines:
+#   - name: pipelinejob1
+#     steps:
+#       - name: test1
+#         type: Bash
+#         configuration:
+#           inputResources:
+#             - name: sample_jobQ
+#           runtime:            
+#             type: image
+#             image:
+#               custom:
+#                 name: drydock/c7cppall
+#                 tag: master
+#                 options: "" 
+#         execution:
+#           onExecute: 
+#              - printenv
+#              - gcc --version
              
 
           
