@@ -16,6 +16,7 @@ pipelines:
       - name: test
         type: Bash
         configuration:
+          nodePool: bindu_test
           inputResources:
             - name: gitResource121
         execution:
