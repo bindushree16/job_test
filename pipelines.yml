@@ -11,7 +11,7 @@ resources:
       sha: master
       
 pipelines:
-  - name: pipelineQA
+  - name: pipelineQAa
     steps:
       - name: test
         type: Bash
